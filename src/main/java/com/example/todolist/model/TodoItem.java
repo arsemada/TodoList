@@ -3,11 +3,13 @@ package com.example.todolist.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class TodoItem {
 
     private Long id;
+    @NotBlank
     private String title;
     private boolean done;
 
