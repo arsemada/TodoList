@@ -2,6 +2,7 @@ package com.example.todolist.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 
@@ -9,21 +10,26 @@ import jakarta.validation.constraints.NotBlank;
 public class TodoItem {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
+
+    @NotBlank(message = "Title cannot be blank")
     private String title;
+
     private boolean done;
 
+    // Default constructor
     public TodoItem() {
     }
 
-    public TodoItem(Long id, String title, boolean done){
+    // All-args constructor
+    public TodoItem(Long id, String title, boolean done) {
         this.id = id;
         this.title = title;
         this.done = done;
     }
 
+    // Getters and Setters
     public Long getId() {
         return id;
     }
