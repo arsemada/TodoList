@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/todos") // Using a more standard API path
+@RequestMapping("/api/todos")
 public class TodoController {
 
     private final TodoRepo todoRepo;

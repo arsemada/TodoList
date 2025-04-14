@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "todos") // It's good practice to explicitly name your table
+@Table(name = "todos")
 public class TodoItem {
 
     @Id
