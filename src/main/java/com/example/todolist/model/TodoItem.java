@@ -1,12 +1,10 @@
 package com.example.todolist.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
+@Table(name = "todos") // It's good practice to explicitly name your table
 public class TodoItem {
 
     @Id
@@ -16,15 +14,14 @@ public class TodoItem {
     @NotBlank(message = "Title cannot be blank")
     private String title;
 
-    private boolean done;
+    private boolean done = false; // Default value for 'done'
 
-    // Default constructor
+    // Default constructor (required by JPA)
     public TodoItem() {
     }
 
-    // All-args constructor
-    public TodoItem(Long id, String title, boolean done) {
-        this.id = id;
+    // Constructor without ID (for creating new items)
+    public TodoItem(@NotBlank(message = "Title cannot be blank") String title, boolean done) {
         this.title = title;
         this.done = done;
     }
